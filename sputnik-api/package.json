@@ -1,23 +1,24 @@
 {
-  "name": "sputnik-api",
+  "name": "api-rest",
   "version": "1.0.0",
-  "description": "sputnik-api",
+  "description": "Proyecto apuestas mundial 2018",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/crisc10/sputnik.git"
-  },
-  "author": "Henrry Guzman, Andres Garcia, Rinna Chipana, Cristian Chavez",
+  "author": "Henrry Guzman,Cristian Chavez,Andres Garcia",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/crisc10/sputnik/issues"
-  },
-  "homepage": "https://github.com/crisc10/sputnik#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
-    "express": "^4.16.3"
+    "crypto": "^1.0.1",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.21.0",
+    "mongoose": "^5.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
   }
 }
