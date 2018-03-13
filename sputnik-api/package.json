@@ -1,0 +1,23 @@
+{
+  "name": "sputnik-api",
+  "version": "1.0.0",
+  "description": "sputnik-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crisc10/sputnik.git"
+  },
+  "author": "Henrry Guzman, Andres Garcia, Rinna Chipana, Cristian Chavez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crisc10/sputnik/issues"
+  },
+  "homepage": "https://github.com/crisc10/sputnik#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
