@@ -14,7 +14,6 @@ mongoose.connect(config.db, function (err, res) {
     app.listen(config.port, () => {
         console.log(`sputnik running in http://localhost:${config.port} `)
     })
-
 });
 
 

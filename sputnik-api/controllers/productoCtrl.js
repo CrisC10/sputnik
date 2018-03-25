@@ -19,7 +19,6 @@ function getProductos(req, res) {
         if (!productos) return res.status(404).send({mensaje: `No existen productos`});
         res.status(200).send({productos})
     })
-
 }
 
 function saveProducto(req, res) {
@@ -37,7 +36,6 @@ function saveProducto(req, res) {
         if (err) res.status(500).send({mensaje: `Error al salvar en la base de datos : ${err}`});
         res.status(200).send({producto: productoStored})
     })
-
 }
 
 function updateProducto(req, res) {
@@ -49,9 +47,7 @@ function updateProducto(req, res) {
         if (!productoActualizado) return res.status(404).status({mensaje: `El producto no existe`});
 
         res.status(200).send({producto: update})
-
     })
-
 }
 
 function deleteProducto(req, res) {
@@ -64,9 +60,7 @@ function deleteProducto(req, res) {
             if (err) res.status(500).send({mensaje: `Error al borrar el producto: ${err}`});
             res.status(200).send({mensaje: `El producto ha sido eliminado`})
         })
-
     })
-
 }
 
 module.exports = {
