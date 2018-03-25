@@ -1,5 +1,5 @@
 module.exports = {
-    port : process.env.PORT || 3000,
-    db : process.env.MONGODB || 'mongodb://localhost:27017/mundial2018',
+    port: process.env.PORT || 3000,
+    db: process.env.MONGODB || 'mongodb://localhost:27017/sputnik',
     SECRET_TOKEN: 'miclavedetoken'
-}
+};

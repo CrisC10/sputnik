@@ -1,13 +1,13 @@
 {
-  "name": "api-rest",
+  "name": "sputnik-api",
   "version": "1.0.0",
-  "description": "Proyecto apuestas mundial 2018",
+  "description": "sputnik-api",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Henrry Guzman,Cristian Chavez,Andres Garcia",
+  "author": "Henrry Guzman / Cristian Chavez / Andres Garcia",
   "license": "MIT",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
