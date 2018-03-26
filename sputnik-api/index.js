@@ -4,7 +4,7 @@ const app = require('./app');
 const config = require('./config');
 
 //Conexion a la Base de Datos
-mongoose.connect(config.db, function (err, res) {
+mongoose.connect(config.db, function (err) {
     if (err) {
         return console.log(`Error al conectar a la Base de Datos : ${err}`)
     }
