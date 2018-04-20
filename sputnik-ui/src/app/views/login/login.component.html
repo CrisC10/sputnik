@@ -1,0 +1,82 @@
+
+<div class="card login-container" >
+  <div class="card-body">
+
+
+    <div class="row" style="margin-top: 125px;">
+      <div class="col-sm-12 col-md-12 offset-md-12 col-lg-12 offset-lg-0" >
+        <div class="login-image">
+          <img src="assets/images/logoTropicalTours.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 25px;">
+      <form class="col-md-12" style="padding-left: 0px;padding-right: 0px;" role="form" #loginForm="ngForm" novalidate>
+        <div class="col-md-4 offset-md-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="usuario-label">
+              <i class="fas fa-user"></i>
+            </span>
+            </div>
+            <input class="form-control"
+                   type="text"
+                   id="usuario"
+                   name="usuario"
+                   #vUsuario = "ngModel"
+                   [(ngModel)]="vObjLogin.usuario"
+                   validarLetrasDirective="true" SoloLetras="no" Especiales="/-_\"
+                   required
+                   placeholder="Usuario"
+                   aria-label="Usuario"
+                   aria-describedby="usuario-label">
+          </div>
+        </div>
+
+        <div class="col-md-4 offset-md-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text" id="password_label">
+              <i class="fas fa-key"></i>
+            </span>
+            </div>
+            <input class="form-control"
+                   type="password"
+                   id="password"
+                   name="password"
+                   #vPassword = "ngModel"
+                   [(ngModel)]="vObjLogin.password"
+                   validarLetrasDirective="true" SoloLetras="no" Especiales=""
+                   required
+                   placeholder="Contraseña"
+                   aria-label="Contraseña"
+                   aria-describedby="password_label">
+          </div>
+        </div>
+        <div class="col-md-4 offset-md-4">
+          <p style="margin-bottom: 0px;"><span *ngIf="vUsuario.errors?.required" class="mensaje-requerido">
+            <i class="fas fa-user"></i>&nbsp;&nbsp;Usuario es requerido
+          </span></p>
+          <p style="margin-bottom: 0px;"><span *ngIf="vPassword.errors?.required" class="mensaje-requerido">
+            <i class="fas fa-key"></i>&nbsp;&nbsp;Contraseña es requerido
+          </span></p>
+        </div>
+      </form>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+      <div class="col-md-4 offset-md-4">
+        <button type="button"
+                class="btn btn-primary btn-lg btn-block"
+                (click)="onLoggedin(vObjLogin)"
+                [disabled]="(vObjLogin.usuario === '' || vObjLogin.usuario === null) ||
+                              (vObjLogin.password === '' || vObjLogin.password === null)">
+          Iniciar Sesión
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    Desarrollado por&nbsp;&nbsp;<i class="far fa-copyright"></i>&nbsp;&nbsp;MC4 S.R.L. - 2018
+  </div>
+</div>

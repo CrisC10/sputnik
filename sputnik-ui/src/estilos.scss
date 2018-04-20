@@ -1,0 +1,367 @@
+// ============================================== IMPORT ANGULAR MATERIAL ==============================================
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*===================================== COMPONENTES DE BOOTSTRAP ==========================================*/
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.th {
+  text-align: center;
+}
+
+
+// ============================================== BUTTONS ==============================================
+$color-primario: #7b241c ;
+$color-primario-dark: #922b21  ;
+$color-primario-light: #a93226  ;
+
+$color-secundario: #1a5276 ;
+$color-secundario-dark: #1f618d ;
+$color-secundario-light: #2471a3 ;
+
+$color-cancel:  #5f6a6a   ;
+$color-cancel-dark:   #717d7e   ;
+$color-cancel-light: #839192  ;
+
+
+
+$color-cancelar: #fff;
+$color-cancelar-dark: #ececec;
+
+$color-boton-editar: #2B86CC;
+$color-boton-editar-light: #2c99e2;
+
+$color-boton-ver:#17a2b8 ;
+$color-boton-ver-light: #17cce2;
+
+$color-boton-eliminar: #f2a949;
+$color-boton-eliminar-light: #ffb24d;
+
+$color-boton-cambiarestado: #f2a949;
+$color-boton-cambiarestado-light: #ffb24d;
+
+
+* {
+  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+}
+.btn:focus{
+  outline: none !important;
+}
+
+/* -------------- BUTTON GUARDAR ----------------*/
+.btn-spt-guardar{
+  background-color: $color-secundario;
+  box-shadow: 0 .25rem .5rem #b6b6b6;
+  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
+  color: white;
+}
+.btn-spt-guardar:hover,
+.btn-spt-guardar:focus,
+.btn-spt-guardar:active,
+.btn-spt-guardar:visited {
+  background-color: $color-secundario-light;
+  color: white;
+}
+
+
+/* -------------- BUTTON CANCELAR ----------------*/
+.btn-spt-cancelar {
+  background-color: $color-cancelar;
+  box-shadow: 0 .25rem .5rem #d5dbdb ;
+  -webkit-box-shadow: 0 .25rem .5rem #d5dbdb ;
+  color: #2e2e2e;
+}
+.btn-spt-cancelar:hover,
+.btn-spt-cancelar:focus,
+.btn-spt-cancelar:active,
+.btn-spt-cancelar:visited {
+  background-color: $color-cancelar-dark;
+  color: #2e2e2e;
+}
+
+/* -------------- BUTTON BASIC/GENERAL ----------------*/
+.btn-spt-general{
+  color: #fff;
+  background-color: $color-primario-dark;
+  box-shadow: 0 .25rem .5rem #b6b6b6;
+  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
+}
+.btn-spt-general:hover,
+.btn-spt-general:focus,
+.btn-spt-general:active,
+.btn-spt-general:visited {
+  background-color: $color-primario-light;
+  //color:$btn-text-color;
+}
+
+.btn-padding {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+/* -------------- BUTTON ICON ICONS ----------------*/
+.btn-spt-icon {
+  width: 30px;
+  height: 30px;
+  color: white;
+  padding: 0px;
+  margin: 0px 1px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 .25rem .5rem #b6b6b6;
+  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
+  i {
+    font-size: 15px !important;
+  }
+}
+/* -------------- BUTTON ICON EDITAR----------------*/
+.btn-spt-editar{
+  background-color: $color-boton-editar;
+}
+.btn-spt-editar:hover,
+.btn-spt-editar:focus,
+.btn-spt-editar:active,
+.btn-spt-editar:visited {
+  background-color: $color-boton-editar-light;
+}
+
+/* -------------- BUTTON ICON ELIMINAR----------------*/
+.btn-spt-eliminar{
+  background-color: $color-boton-eliminar;
+}
+.btn-spt-eliminar:hover,
+.btn-spt-eliminar:focus,
+.btn-spt-eliminar:active,
+.btn-spt-eliminar:visited {
+  background-color: $color-boton-eliminar-light;
+}
+
+/* -------------- BUTTON ICON VER----------------*/
+.btn-spt-ver{
+  background-color: $color-boton-ver;
+}
+.btn-spt-ver:hover,
+.btn-spt-ver:focus,
+.btn-spt-ver:active,
+.btn-spt-ver:visited {
+  background-color: $color-boton-ver-light;
+}
+
+
+/* -------------- BUTTON WITH RESIZING----------------*/
+
+.btn-accion .fa {
+  display: none;
+}
+
+@media screen and (max-width: 1500px) {
+  .btn-accion {
+    width: 40px;
+    height: 38px;
+  }
+  .btn-accion .fa {
+    display: block;
+    color: #fff;
+    -webkit-text-stroke-width: 0px;
+    font-size: 1.3em;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-15%, -40%);
+  }
+  .btn-accion-text{
+    display: none;
+  }
+}
+
+
+
+
+// ============================================== TAGS DE ESTADO ==============================================
+$color-estado-activo: #49DB81;
+$color-estado-inactivo:#FC4E6C;
+
+.tag-spt-activo {
+  background-color: $color-estado-activo;
+  color: white;
+  border-radius: 5px;
+  padding: 3px 13px;
+}
+
+.tag-spt-inactivo {
+  background-color: $color-estado-inactivo;
+  color: white;
+  border-radius: 5px;
+  padding: 3px 13px;
+}
+
+// ============================================== FORMATO DE TEXTOS ==============================================
+.a-izquierda{
+  text-align: left;
+}
+
+.a-derecha{
+  text-align: right;
+}
+
+.a-centro{
+  text-align: center;
+}
+// ============================================== PAGINACIÓN ==============================================
+.ngx-pagination{
+}
+.ngx-pagination .current{
+  background-color: $color-secundario !important;
+  border-radius: 5px;
+  padding: 4px 10px !important;
+}
+
+/* -------------- Anterior ----------------*/
+.ngx-pagination .pagination-previous span{
+  display: none;
+}
+.ngx-pagination .pagination-previous a {
+  visibility: hidden;
+}
+.ngx-pagination .pagination-previous a:after{
+  visibility: visible;
+  font-family: FontAwesome, Exo;
+  content: '\f100 Anterior';
+}
+.ngx-pagination .pagination-previous a:hover{
+  color: $color-secundario;
+}
+
+/* -------------- Siguiente ----------------*/
+.ngx-pagination .pagination-next span{
+  display: none;
+}
+.ngx-pagination .pagination-next a{
+  visibility: hidden;
+}
+.ngx-pagination .pagination-next a:before{
+  visibility: visible;
+  font-family: FontAwesome, Exo;
+  content: 'Siguiente \f101';
+}
+.ngx-pagination .pagination-next a:hover{
+  color: $color-secundario;
+}
+
+// ============================================== FORMS ==============================================
+
+.inline {
+  display:inline-block;
+  margin-right:5px;
+}
+/* -------------- Modal ----------------*/
+.titulo-modal{
+  background-color: $color-primario-light;
+  color: white;
+  padding: 15px 0px 5px 13px;
+}
+.texto-mensaje-modal{
+  font-size: 18px;
+}
+
+/* -------------- Input de Busqueda ----------------*/
+.tamanio-busqueda{
+  width: 250px !important;
+}
+
+/* -------------- DataTable ----------------*/
+.tabla-cabecera{
+  background-color: $color-primario-light;
+  color: white;
+}
+.tabla-sobreCabecera{
+  background-color: $color-secundario-light;
+  color: white;
+}
+
+.tabla-fila{
+  padding: 0.50rem !important;
+}
+.columna-1{
+  width: 100px;
+  max-width: 100px;
+}
+.columna-2{
+  width: 200px;
+  max-width: 200px;
+}
+.columna-3{
+  width: 300px;
+  max-width: 300px;
+}
+
+.buscador-nombre{
+  padding: 5px;
+}
+/* ------------- Boton Eliminar -------------------*/
+
+
+.eliminar-body{
+  text-align: center;
+
+  .eliminar-icon{
+    font-size: 100px !important;
+    color: $color-boton-eliminar;
+  }
+}
+.eliminar-footer{
+  padding: 20px;
+  text-align: center !important;
+
+  .btn-eliminar{
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    width: 70px;
+  }
+}
+
+.mensaje-requerido{
+  color: #e74c3c ;
+}
+
+/*===================================== DATE PICKER ==========================================*/
+.cdk-overlay-container {
+  z-index: 4000 !important;
+}
+
+
+
+.btn-confirm-swal{
+  color: #fff;
+  background-color: $color-secundario-dark;
+  box-shadow: 0 .25rem .5rem #b6b6b6;
+  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
+  margin-left: 10px;margin-top: 0px;margin-bottom: 0px;margin-right: 10px;
+}
+.btn-spt-general:hover,
+.btn-spt-general:focus,
+.btn-spt-general:active,
+.btn-spt-general:visited {
+  background-color: $color-secundario-light;
+  //color:$btn-text-color;
+}
+
+
+
+.btn-cancel-swal{
+  color: #fff;
+  background-color: $color-cancel-dark;
+  box-shadow: 0 .25rem .5rem #b6b6b6;
+  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
+  margin-left: 10px;margin-top: 0px;margin-bottom: 0px;margin-right: 10px;
+}
+.btn-spt-general:hover,
+.btn-spt-general:focus,
+.btn-spt-general:active,
+.btn-spt-general:visited {
+  background-color: $color-cancel-light;
+  //color:$btn-text-color;
+}

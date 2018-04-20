@@ -1,0 +1,7 @@
+<app-header
+  (comprimirMenu)="estaComprimido = $event"></app-header>
+<app-sidebar [estadoMenu]="estaComprimido"></app-sidebar>
+
+<section class="main-container">
+  <router-outlet></router-outlet>
+</section>

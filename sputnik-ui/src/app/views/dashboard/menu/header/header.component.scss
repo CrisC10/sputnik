@@ -1,0 +1,103 @@
+$color-primario: #922b21;
+$color-primario-dark: #a93226 ;
+$color-primario-light: #c0392b;
+$topnav-color-text-hover: #aeb6bf;
+$topnav-color-text: #fff;
+
+/*-----------------ACCOUNT ICON--------------------*/
+.fa {
+  color: $color-primario;
+  border-width: 1px !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  font-size: 1.5em;
+}
+
+.btn-esconder-menu{
+  background-color: $color-primario;
+}
+.fa-menu-action{
+  color: $topnav-color-text;
+  border-width: 0px !important;
+  font-size: 30px;
+}
+.btn-esconder-menu:hover{
+  background-color: $color-primario-light;
+}
+
+:host {
+  .navbar {
+    background-color: $color-primario;
+    height: 60px;
+    box-shadow: 0 1px 10px 0 rgba(164, 171, 179, 0.6);
+    .navbar-menu{
+      background-color: $color-primario;
+      &:hover {
+        background-color: $color-primario-light;
+      }
+    }
+    .navbar-logo{
+      width: 160px;
+      padding-left: 10px;
+    }
+    .navbar-brand{
+      font-size: 25px;
+      margin-left: 10px;
+      margin-top: 2px;
+      color: $topnav-color-text;
+    }
+    .navbar-subname {
+      font-size: 20px;
+      color: $topnav-color-text;
+    }
+    .nav-item > a {
+      color: $topnav-color-text;
+      &:hover {
+        color: $topnav-color-text-hover;
+      }
+    }
+  }
+  .messages {
+    width: 300px;
+    .media {
+      border-bottom: 1px solid #ddd;
+      padding: 5px 10px;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .media-body {
+      h5 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .small {
+        margin: 0;
+      }
+      .last {
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+  }
+
+
+
+@media screen and (max-width: 992px) {
+    .navbar {
+      .navbar-brand {
+        margin-top: 10px;
+        font-size: 25px;
+      }
+      .navbar-subname {
+        display: none;
+      }
+    }
+    .navbar-menu{
+      display: none;
+    }
+  }
+
+}
+
+

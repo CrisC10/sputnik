@@ -1,0 +1,32 @@
+<subheader></subheader>
+<!--<div class="grow">Hola</div>-->
+<nav class="sidebar" style="margin-top: -18px;">
+  <ul class="list-group">
+    <!--MENU-->
+    <div *ngFor="let menu of listaMenu" class="nested-menu">
+
+      <!--MENU TITULO-->
+      <a class="list-group-item" (click)="expandirMenu(menu.recursoPadre.nombre)">
+        <span class="menu-title">
+          <i [class]="menu.recursoPadre.icon"></i>&nbsp;<span class="menu-text">{{ menu.recursoPadre.nombre }} </span>
+        </span>
+      </a>
+
+      <!--SUBMENU-->
+      <li *ngIf="menu.listRecursoHijos" class="nested" [class.expand]="mostrarMenu === menu.recursoPadre.nombre">
+        <ul *ngFor="let subMenu of menu.listRecursoHijos" class="submenu">
+          <li>
+            <a [routerLink]="['/' + subMenu.url +'/']"
+            [routerLinkActive]="['router-link-active']"
+            href="javascript:void(0)">
+
+              <!--SUBMENU TITULO-->
+              <span>{{ subMenu.nombre}}</span>
+
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+  </ul>
+</nav>
