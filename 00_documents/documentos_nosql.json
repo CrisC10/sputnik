@@ -1,0 +1,105 @@
+==============================
+usuarios
+==============================
+{
+    "id_usuario": "788",
+    "username": "rleaplaza",
+    "nombre_completo": "RODRIGO LEA PLAZA",
+    "password": "j324o5342543DF$%%#^56",
+    "partidas": [
+        {"id_partida":"33"}, //GLOBAL
+        {"id_partida":"36"} //PRIMEROS LUGARES
+    ],
+    "roles":[
+        { "id_rol": "66" }
+    ]
+}
+
+==============================
+partida / apuesta
+==============================
+{
+    "id_partida": "33",
+    "descripcion": "doctor_campero",
+    "id_usuario_admin": "777"
+    "usuarios_participantes":[
+        {"id_usuario_jugador": "788"},
+        {"id_usuario_jugador": "788"}
+    ]
+}
+
+==============================
+apuestas / detalle_apuesta_general
+==============================
+{
+    "id_apuesta": "6",
+    "id_usuario": "18",
+    "tipo": "GENERAL|PRIMEROS_LUGARES",
+    "id_partida": "33",
+    "puntos": "0",
+    "detalle_apuesta_general": {
+        "id_detalle_apuesta_general": "4",
+        "fases":[
+            {"id_fase": "78"},
+            {"id_fase": "79"}
+        ]
+    }
+}
+
+==============================
+fase / partido
+==============================
+{
+    "id_fase": "78",
+    "codigo": "FASE_GRUPO_A",
+    "descripcion": "FASE DE GRUPO A",
+    "partidos":[
+        {
+            "id_partido": "85",
+            "pais_local":{
+                "id_pais": "86",
+                "score": "3",
+                "ganador": true
+            },
+            "pais_visita":{
+                "id_pais": "87",
+                "score": "1",
+                "ganador": true
+            }
+        }
+    ],
+    "detalles_apuestas_generales": [
+        {"id_detalle_apuesta_general":"4"},
+        {"id_detalle_apuesta_general":"5"}
+    ]
+}
+
+==============================
+puntos_pais_fase_grupos
+==============================
+{
+    "id_puntos_pais_fase_grupos": "54",
+    "id_fase": "78",
+    "id_pais": "86",
+    "puntos": "9",
+    "gol_diferencia": "-8",
+}
+
+
+==============================
+paises
+==============================
+{
+    "id_pais": "86",
+    "codigo": "BO",
+    "descripcion": "BOLIVIA"
+}
+
+==============================
+roles
+==============================
+{
+    "id_rol": "66",
+    "codigo": "SUPERADMIN",
+    "descripcion": "SUPER ADMINISTRADOR"
+}
