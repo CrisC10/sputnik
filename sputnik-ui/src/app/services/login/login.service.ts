@@ -1,34 +1,35 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-
 import {Constants} from '../../../assets/constants';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Credential} from '../../models/login/credentials.model';
-import {LoginModel} from '../../models/login/login.model';
-import {LoginResponse} from '../../models/login/login-response';
+
 
 
 @Injectable()
 export class LoginService {
+  constructor(private http: HttpClient) {}
 
+  login(credencials): Observable<any> {
 
-    constructor(private http: HttpClient) {}
+    const body = new HttpParams()
+      .set('username', credencials.username.trim())
+      .set('password', credencials.password.trim())
+      .set('grant_type', 'password');
 
-    /**
-     * gcallisaya 20/12/2017 : Inicio de Sesión mediante un Servicio POST
-     *
-     * @endpoint /auth/
-     * **/
-    loginFromEndpoint(credencials): Observable<any> {
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          // 'Accept-Language': 'es-BOE;q=0.8'
-        })
+    return this.http.post(
+      Constants.ENDPOINT_LOGIN,
+      body.toString(),
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
       }
-      return this.http.post(Constants.ENDPOINT_LOGIN, credencials, httpOptions);
+    );
+  }
 
-    }
-
-
+  logout(): Observable<any> {
+    return this.http.post(Constants.ENDPOINT_LOGOUT, {},
+      {
+        headers: new HttpHeaders().set('Authorization', localStorage.getItem('token_type') + ' ' + localStorage.getItem('access_token'))
+      }
+    );
+  }
 }

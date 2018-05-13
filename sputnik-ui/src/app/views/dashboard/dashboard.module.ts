@@ -8,7 +8,6 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BienvenidaComponent} from './bienvenida/bienvenida.component';
 import {DndModule} from 'ng2-dnd';
-import {SimpleTableComponent} from './bienvenida/table/simple-table.component';
 import {SubheaderComponent} from './menu/subheader/subheader.component';
 import {AuthInterceptor} from '../../interceptors/auth.interceptor';
 import {NotificacionesComponent} from '../../directives/notificaciones.component';
@@ -27,8 +26,7 @@ import {TiempoSesionComponent} from '../../directives/tiempoSesion.component';
     HeaderComponent,
     SidebarComponent,
     SubheaderComponent,
-    BienvenidaComponent,
-    SimpleTableComponent
+    BienvenidaComponent
   ],
   providers: [
     {

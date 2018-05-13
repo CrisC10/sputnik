@@ -3,79 +3,94 @@
 <div class="card">
   <div class="card-body">
     <div class="row">
-      <h3>Credenciales</h3>
-    </div>
-    <div class="row">
-      <form class="col-md-12" role="form" #agrupadoresForm="ngForm" novalidate>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="usuario">Usuario</label>
-            <input class="form-control"
-                   type="text"
-                   id="usuario"
-                   name="usuario"
-                   #vUsuario = "ngModel"
-                   [(ngModel)]="usuario"
-                   validarLetrasDirective="true" SoloLetras="no" Especiales="'-_/."
-                   maxlength="25"
-                   required>
-            <span *ngIf="vUsuario.errors?.required" class="mensaje-requerido">Usuario es requerido</span>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="password">Contraseña</label>
-            <input class="form-control"
-                   type="password"
-                   id="password"
-                   name="password"
-                   #vPassword = "ngModel"
-                   [(ngModel)]="password"
-                   validarLetrasDirective="true" SoloLetras="no" Especiales="'-_/."
-                   maxlength="25"
-                   required>
-            <span *ngIf="vPassword.errors?.required" class="mensaje-requerido">Contraseña es requerido</span>
-          </div>
-          <div class="form-group col-md-4">
-            <label for="canal">Canal</label>
-            <select class="form-control"
-                    id="canal"
-                    name="canal"
-                    #vCanal="ngModel"
-                    [(ngModel)]="canal"
-                    required>
-              <option [ngValue]="null">SELECCIONAR</option>
-              <option *ngFor="let c of vObjCanal" [ngValue]="c.codigo">{{c.codigo}} - {{ c.descripcion }}</option>
-            </select>
-            <span *ngIf="vCanal.errors?.required" class="mensaje-requerido">Canal es requerido</span>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <div class="row">
       <h3>Búsqueda por</h3>
     </div>
 
     <div class="row">
-      <form class="col-md-12" role="form" #agrupadoresForm="ngForm" novalidate>
+      <form class="col-md-12" role="form" #conciliacionesForm="ngForm" novalidate>
+
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="fechaConciliacion">Fecha</label>
+            <label for="codigoAgrupador">Código Agrupador</label>
+            <input class="form-control"
+                   type="text"
+                   id="codigoAgrupador"
+                   name="codigoAgrupador"
+                   #vCodigoAgrupador = "ngModel"
+                   [(ngModel)]="codigoAgrupador"
+                   validarLetrasDirective="true" SoloLetras="no" Especiales="'-_/"
+                   onkeyup="javascript:codigoAgrupador.toUpperCase();"
+                   maxlength="20">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label >Fecha Desde</label>
             <div class="input-group">
               <input class="form-control"
-                     id="fechaConciliacion"
-                     name="fechaConciliacion"
-                     #vFechaConciliacion = "ngModel"
-                     matInput [matDatepicker]="pickerFechaConciliacion"
-                     [min]="fechaMinima"
-                     [(ngModel)]="fechaConciliacion"
-                     validarNoEditable="true" Editable="no"
-                     required/>
+                     [ngModelOptions]="{standalone: true}"
+                     #vFechaDesde = "ngModel"
+                     matInput [matDatepicker]="pickerFechaDesde"
+                     (dateChange)="validarFecha(fechaDesde)"
+                     [min]="fechaMinimaDesde"
+                     [max]="fechaMaximaDesde"
+                     [(ngModel)]="fechaDesde"
+                     validarNoEditable="true" Editable="no"/>
               <div class="input-group-append">
-                <span (click)="pickerFechaConciliacion.open()" class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                <mat-datepicker #pickerFechaConciliacion></mat-datepicker>
+                <span *ngIf="fechaDesde !== '' && fechaDesde !== null" (click)="limpiarDesde()" class="input-group-text"><i class="fas fa-times"></i></span>
+                <span (click)="pickerFechaDesde.open()" class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+
+                <mat-datepicker #pickerFechaDesde></mat-datepicker>
               </div>
             </div>
-            <span *ngIf="vFechaConciliacion.errors?.required" class="mensaje-requerido">Fecha es requerido</span>
+            <span *ngIf="fechaHasta !== '' && fechaHasta !== null && (fechaDesde === '' || fechaDesde === null)"
+
+                  class="mensaje-requerido">Fecha Desde es requerido</span>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label >Fecha Hasta</label>
+            <div class="input-group">
+              <input class="form-control"
+                     [ngModelOptions]="{standalone: true}"
+                     #vFechaHasta = "ngModel"
+                     matInput [matDatepicker]="pickerFechaHasta"
+                     [min]="fechaMinimaHasta"
+                     [max]="fechaMaximaHasta"
+                     [(ngModel)]="fechaHasta"/>
+              <div class="input-group-append">
+                <span *ngIf="fechaHasta !== '' && fechaHasta !== null" (click)="limpiarHasta()" class="input-group-text"><i class="fas fa-times"></i></span>
+                <span (click)="pickerFechaHasta.open()" class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                <mat-datepicker #pickerFechaHasta></mat-datepicker>
+              </div>
+            </div>
+            <span *ngIf="fechaDesde !== '' && fechaDesde !== null && (fechaHasta === '' || fechaHasta === null)"
+
+                  class="mensaje-requerido">Fecha Hasta es requerido</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="canal">Canal</label>
+            <select class="form-control custom-select"
+                    id="canal"
+                    name="canal"
+                    #vCanal="ngModel"
+                    [(ngModel)]="canal">
+              <option [ngValue]="null">TODOS</option>
+              <option *ngFor="let c of vObjCanal" [ngValue]="c">{{c.codigo}} - {{ c.descripcion }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="medioPago">Medio de Pago</label>
+            <select class="form-control custom-select"
+                    id="medioPago"
+                    name="medioPago"
+                    #vMedioPago="ngModel"
+                    [(ngModel)]="medioPago">
+              <option [ngValue]="null">TODOS</option>
+              <option *ngFor="let c of vObjMedioPago" [ngValue]="c">{{c.id}} - {{ c.descripcion }}</option>
+            </select>
           </div>
         </div>
       </form>
@@ -85,13 +100,28 @@
       <div class="card-header">
         <form class="form-inline">
 
-          <button type="button"
-                  class="btn btn-spt-general"
+          <button type="button" style="margin-right: 15px;"
+                  class="btn btn-general"
                   (click)="llamarServicios()"
-                  [disabled]="(usuario === '' || usuario === null) ||
-                              (password === '' || password === null) ||
-                              (fechaConciliacion === '' || fechaConciliacion === null)">
+                  [disabled]="(fechaDesde !== '' && fechaDesde !== null && (fechaHasta === '' || fechaHasta === null)) ||
+                              (fechaHasta !== '' && fechaHasta !== null && (fechaDesde === '' || fechaDesde === null))">
             <i class="fas fa-arrow-alt-circle-down"></i> Cargar Datos
+          </button>
+
+          <button type="button" style="margin-right: 15px;"
+                  class="btn btn-general-default"
+                  (click)="impresionDocumento('PDF')"
+                  [disabled]="(vFechaDesde.errors?.required || vFechaHasta.errors?.required) ||
+                              listaObjeto.base64Pdf === '' || listaObjeto.base64Pdf === null">
+            <i style="color:red" class="fas fa-file-pdf"></i> Descargar PDF
+          </button>
+
+          <button type="button"
+                  class="btn btn-general-default"
+                  (click)="impresionDocumento('XLS')"
+                  [disabled]="(vFechaDesde.errors?.required || vFechaHasta.errors?.required) ||
+                              listaObjeto.base64Excel === '' || listaObjeto.base64Excel === null">
+            <i style="color:green" class="fas fa-file-excel"></i> Descargar EXCEL
           </button>
 
           <div class="input-group col-4">
@@ -102,60 +132,87 @@
                    name="data"
                    type="text"
                    class="form-control"
-                   placeholder="Buscar Dato"
+                   placeholder="Buscar"
                    maxlength="25"
                    [(ngModel)]="filtroDeBusqueda"
-                   validarLetrasDirective="true" SoloLetras="no" Especiales="/_,.">
+                   validarLetrasDirective="true" SoloLetras="no" Especiales="/_,.:-">
           </div>
         </form>
       </div>
 
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered">
+          <table class="table table-bordered table-hover">
             <thead class="tabla-cabecera">
             <tr>
-              <th style="text-align:center"># </th>
-              <th>Cod. Agrupador </th>
-              <th>Cod. Localizador </th>
-              <th>Razón Social</th>
+              <th align="center">#</th>
+              <th>Agrupador</th>
+              <th>Localizador</th>
               <th>NIT</th>
+              <th>Razón Social</th>
+              <th>Tipo</th>
+              <th>Fecha Pago<br>Entidad</th>
+              <th>Fecha Efectiva<br>Pago</th>
+              <th>Canal</th>
+              <th>Medio Pago</th>
+              <th>Usuario<br>Transacción</th>
               <th>Monto (Bs.)</th>
-              <th>Fecha de Pago</th>
             </tr>
             </thead>
             <tbody>
-            <ng-container *ngFor="let data of listaObjeto | filtro: filtroDeBusqueda | paginate: { itemsPerPage: 100, currentPage: 1} ; index as i">
-              <tr>
-                <td align="center" [attr.rowspan]="data.localizadores.length" style="vertical-align: middle">
-                  {{i+1}}
-                </td>
-                <td [attr.rowspan]="data.localizadores.length" style="vertical-align: middle">
-                  {{data.codigoAgrupador}}
-                </td>
-                <td>{{data.localizadores[0].codigoLocalizador}}</td>
-                <td>{{data.localizadores[0].razonSocial}}</td>
-                <td>{{data.localizadores[0].nitCliente}}</td>
-                <td align="right">{{data.localizadores[0].montoPago | number : '1.2-2'}} </td>
-                <td>{{data.localizadores[0].fecha | date:'dd/MM/yyyy HH:mm'}}</td>
-              </tr>
-              <ng-container *ngFor="let local of data.localizadores; first as isFirst">
-                <tr *ngIf="!isFirst">
-                  <td>{{local.codigoLocalizador}}</td>
-                  <td>{{local.razonSocial}}</td>
-                  <td>{{local.nitCliente}}</td>
-                  <td align="right">{{local.montoPago | number : '1.2-2'}}</td>
-                  <td>{{local.fecha | date:'dd/MM/yyyy HH:mm'}}</td>
-                </tr>
-              </ng-container>
-            </ng-container>
+            <tr *ngFor="let data of listaObjeto.conciliaciones | filtro: filtroDeBusqueda | paginate: { id: 'first', itemsPerPage: maxPage, currentPage: pagina, totalItems: cantFilas}; index as i">
+              <td>{{i+1}}</td>
+              <td>{{data.codigoAgrupador}}</td>
+              <td>{{data.codigoLocalizador}}</td>
+              <td>{{data.nitClienteMedioPago}}</td>
+              <td>{{data.razonSocialMedioPago}}</td>
+              <td>{{data.tipoDocumento}}</td>
+              <td>{{data.fechaMedioPago | formatoFecha: 'DD/MM/YYYY HH:mm:ss'}}</td>
+              <td>{{data.fechaEfectivaPago | formatoFecha: 'DD/MM/YYYY HH:mm:ss'}}</td>
+              <td>{{data.canalMedioPago}}</td>
+              <td>{{data.descripcionMedioPago}}</td>
+              <td>{{data.usuarioTransaccionMedioPago}}</td>
+              <td align="right">{{data.monto | number : '1.2-2'}} </td>
+            </tr>
             </tbody>
+            <tfoot *ngIf="cantFilas > 0">
+            <tr class="table-success">
+              <td colspan="11"><strong>Total: </strong></td>
+              <td align="right"><strong>{{listaObjeto.total | number : '1.2-2'}}</strong></td>
+            </tr>
+            </tfoot>
           </table>
         </div>
-        <pagination-controls *ngIf="listaObjeto.localizadores > 0" (pageChange)="pagina = $event"></pagination-controls>
+        <div class="row" *ngIf="cantFilas > 0">
+          <div class="col-sm-5 col-md-9" style="padding-left: 0px;">
+            <pagination-controls
+              id='first'
+              (pageChange)="pagina = $event"
+              previousLabel="Anterior"
+              nextLabel="Siguiente"></pagination-controls>
+          </div>
+          <div class="col-sm-5 offset-sm-2 col-md-3 offset-md-0" style="padding-right: 0px;">
+            <form>
+              <div class="form-group row" >
+                <label for="maxPage" class="col-6 col-form-label text-right">Mostrar:</label>
+
+                <div class="col-6" style="padding-right: 0px;">
+                  <select class="form-control custom-select"
+                          id="maxPage"
+                          name="maxPage"
+                          [(ngModel)]="maxPage">
+                    <option [ngValue]=10>10</option>
+                    <option [ngValue]=20>20</option>
+                    <option [ngValue]=30>30</option>
+                    <option [ngValue]=40>40</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
 

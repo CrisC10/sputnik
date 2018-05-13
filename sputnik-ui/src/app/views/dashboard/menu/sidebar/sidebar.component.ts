@@ -31,27 +31,19 @@ export class SidebarComponent implements OnInit, OnChanges{
         "listRecursoHijos":[
           {
             "codigo": 1,
-            "nombre":"Reservas",
-            "url":"/servicios/agrupador",
+            "nombre":"Medios de Pago",
+            "url":"/servicios/medioPago",
             "icon":null,
-            "descripcion":"Reservas",
+            "descripcion":"Medios de Pago",
             "ordenMenu":1
           },
           {
             "codigo": 2,
-            "nombre":"Clientes",
-            "url":"/servicios/cliente",
-            "icon":null,
-            "descripcion":"Clientes",
-            "ordenMenu":2
-          },
-          {
-            "codigo": 3,
             "nombre":"Conciliaciones",
             "url":"/servicios/conciliacion",
             "icon":null,
             "descripcion":"Conciliaciones",
-            "ordenMenu":3
+            "ordenMenu":2
           }
         ]
       }

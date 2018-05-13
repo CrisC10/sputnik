@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('pasarela-cliente-ui App', () => {
+describe('bmsc-ui App', () => {
   let page: AppPage;
 
   beforeEach(() => {

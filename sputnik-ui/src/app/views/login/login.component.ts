@@ -4,8 +4,8 @@ import {FormGroup, NgForm} from '@angular/forms';
 import {NotificacionesComponent} from '../../directives/notificaciones.component';
 import {TiempoSesionComponent} from '../../directives/tiempoSesion.component';
 import {BlockUI, NgBlockUI} from 'ng-block-ui';
-
 import {LoginService} from '../../services/login/login.service';
+
 
 
 @Component({
@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
 
   vObjLogin: any = {
-    'usuario': null,
-    'password': null
+    username: null,
+    password: null
   };
 
   constructor(public router: Router,
@@ -36,35 +36,25 @@ export class LoginComponent implements OnInit {
   public onLoggedin(pObjLogin) {
     this.blockUI.start();
 
-    console.log('pObjLogin', pObjLogin);
-
-    localStorage.setItem('usuario', 'usuarioUno');
-    localStorage.setItem('token', 'xGFzUSDFJlDFGFDG5A9aFR5N1VBd1JyXX==');
-
-    this.notificaion.success('Bienvenido a pasarela de pagos');
-    this.tiempoSesion.tiempoSession();
-    console.log('localStorage', localStorage);
-    this.router.navigate(['/']);
-    this.blockUI.stop();
-
-    /*this.loginSerive.loginFromEndpoint(pObjLogin).subscribe(
+    this.loginSerive.login(pObjLogin).subscribe(
       respuestaServidor => {
         this.blockUI.stop();
+        console.log('login', respuestaServidor);
 
-        localStorage.setItem('token', respuestaServidor.objeto.token);
-        localStorage.setItem('usuario', respuestaServidor.objeto.usuario);
-        // localStorage.setItem('objMenu', JSON.stringify(respuestaServidor.objeto.menu));
-        // localStorage.setItem('permisos', JSON.stringify(respuestaServidor.objeto.permisos));
+        localStorage.setItem('userName', respuestaServidor.userName);
+        localStorage.setItem('token_type', respuestaServidor.token_type);
+        localStorage.setItem('access_token', respuestaServidor.access_token);
 
-        this.notificaion.success('Bienvenido a pasarela de pagos');
+        this.notificaion.success('Bienvenido(a) a Sputnik');
+        this.tiempoSesion.tiempoSession();
         this.router.navigate(['/']);
-
       },
       errorServidor => {
+        console.log(errorServidor);
         this.blockUI.stop();
         this.notificaion.errorServicio(errorServidor.status, errorServidor.error, 'Login');
       }
-    );*/
+    );
   }
 }
 

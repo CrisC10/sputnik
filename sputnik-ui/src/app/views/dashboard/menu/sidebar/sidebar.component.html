@@ -1,6 +1,6 @@
 <subheader></subheader>
 <!--<div class="grow">Hola</div>-->
-<nav class="sidebar" style="margin-top: -18px;">
+<nav class="sidebar">
   <ul class="list-group">
     <!--MENU-->
     <div *ngFor="let menu of listaMenu" class="nested-menu">
@@ -17,8 +17,8 @@
         <ul *ngFor="let subMenu of menu.listRecursoHijos" class="submenu">
           <li>
             <a [routerLink]="['/' + subMenu.url +'/']"
-            [routerLinkActive]="['router-link-active']"
-            href="javascript:void(0)">
+               [routerLinkActive]="['router-link-active']"
+               href="javascript:void(0)">
 
               <!--SUBMENU TITULO-->
               <span>{{ subMenu.nombre}}</span>

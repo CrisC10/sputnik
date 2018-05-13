@@ -1,5 +1,35 @@
 // ============================================== IMPORT ANGULAR MATERIAL ==============================================
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*===================================== COLORES ==========================================*/
+$color-primario-dark: #7b241c ;
+$color-primario: #922b21;
+$color-primario-light: #a93226;
+
+$color-secundario-dark: #1a5276;
+$color-secundario: #1f618d;
+$color-secundario-light: #2471a3;
+
+$color-gris-dark: #aeb6bf;
+$color-gris: #f2f3f4;
+$color-gris-light: #f8f9f9;
+
+
+$color-verde: #27ae60;
+$color-verde-light: #52be80;
+
+$color-azul: #3498db;
+$color-azul-light: #5dade2;
+
+$color-naranja:  #f39c12;
+$color-naranja-light: #f5b041;
+
+$color-lila: #9b59b6;
+$color-lila-light: #af7ac5;
+
+
+
+
+
 /*===================================== COMPONENTES DE BOOTSTRAP ==========================================*/
 .row {
   margin-right: 0px;
@@ -10,144 +40,192 @@
   text-align: center;
 }
 
-
-// ============================================== BUTTONS ==============================================
-$color-primario: #7b241c ;
-$color-primario-dark: #922b21  ;
-$color-primario-light: #a93226  ;
-
-$color-secundario: #1a5276 ;
-$color-secundario-dark: #1f618d ;
-$color-secundario-light: #2471a3 ;
-
-$color-cancel:  #5f6a6a   ;
-$color-cancel-dark:   #717d7e   ;
-$color-cancel-light: #839192  ;
-
-
-
-$color-cancelar: #fff;
-$color-cancelar-dark: #ececec;
-
-$color-boton-editar: #2B86CC;
-$color-boton-editar-light: #2c99e2;
-
-$color-boton-ver:#17a2b8 ;
-$color-boton-ver-light: #17cce2;
-
-$color-boton-eliminar: #f2a949;
-$color-boton-eliminar-light: #ffb24d;
-
-$color-boton-cambiarestado: #f2a949;
-$color-boton-cambiarestado-light: #ffb24d;
-
-
 * {
   font-size: 12px;
   font-family: 'Lato', sans-serif;
 }
+
 .btn:focus{
   outline: none !important;
 }
 
+.btn:disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  pointer-events: auto;
+}
+
+a.btn:disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+a:btn[disabled] {
+  pointer-events: none;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+
+// ============================================== BUTTONS ==============================================
+
 /* -------------- BUTTON GUARDAR ----------------*/
-.btn-spt-guardar{
+.btn-guardar{
   background-color: $color-secundario;
   box-shadow: 0 .25rem .5rem #b6b6b6;
   -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
   color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
 }
-.btn-spt-guardar:hover,
-.btn-spt-guardar:focus,
-.btn-spt-guardar:active,
-.btn-spt-guardar:visited {
+.btn-guardar:hover,
+.btn-guardar:focus,
+.btn-guardar:active,
+.btn-guardar:visited {
   background-color: $color-secundario-light;
   color: white;
 }
 
 
 /* -------------- BUTTON CANCELAR ----------------*/
-.btn-spt-cancelar {
-  background-color: $color-cancelar;
-  box-shadow: 0 .25rem .5rem #d5dbdb ;
-  -webkit-box-shadow: 0 .25rem .5rem #d5dbdb ;
-  color: #2e2e2e;
+.btn-cancelar {
+  color: black;
+  background-color: $color-gris;
+  box-shadow: 0 .25rem .5rem #b6b6b6;
+  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
-.btn-spt-cancelar:hover,
-.btn-spt-cancelar:focus,
-.btn-spt-cancelar:active,
-.btn-spt-cancelar:visited {
-  background-color: $color-cancelar-dark;
-  color: #2e2e2e;
+.btn-cancelar:hover,
+.btn-cancelar:focus,
+.btn-cancelar:active,
+.btn-cancelar:visited {
+  background-color: $color-gris-light;
+  color: black;
 }
 
 /* -------------- BUTTON BASIC/GENERAL ----------------*/
-.btn-spt-general{
+
+.btn-general{
   color: #fff;
-  background-color: $color-primario-dark;
+  background-color: $color-primario;
   box-shadow: 0 .25rem .5rem #b6b6b6;
   -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
 }
-.btn-spt-general:hover,
-.btn-spt-general:focus,
-.btn-spt-general:active,
-.btn-spt-general:visited {
+.btn-general:hover,
+.btn-general:focus,
+.btn-general:active,
+.btn-general:visited {
   background-color: $color-primario-light;
   //color:$btn-text-color;
 }
+
+
+
+
+.btn-general-default{
+  color: black;
+  background-color: $color-gris;
+  box-shadow: 0 .25rem .5rem #b6b6b6;
+  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
+}
+.btn-general-default:hover,
+.btn-general-default:focus,
+.btn-general-default:active,
+.btn-general-default:visited {
+  background-color: $color-gris-light;
+  //color:$btn-text-color;
+}
+
+
+
 
 .btn-padding {
   margin-right: 2px;
   margin-left: 2px;
 }
 
+
 /* -------------- BUTTON ICON ICONS ----------------*/
-.btn-spt-icon {
-  width: 30px;
-  height: 30px;
+.btn-icon {
+  width: 35px;
+  height: 35px;
   color: white;
   padding: 0px;
   margin: 0px 1px;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 .25rem .5rem #b6b6b6;
   -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
   i {
     font-size: 15px !important;
   }
 }
-/* -------------- BUTTON ICON EDITAR----------------*/
-.btn-spt-editar{
-  background-color: $color-boton-editar;
+
+
+/* -------------- BUTTON ICON ADICIONAR----------------*/
+.btn-verde{
+  background-color: $color-verde;
 }
-.btn-spt-editar:hover,
-.btn-spt-editar:focus,
-.btn-spt-editar:active,
-.btn-spt-editar:visited {
-  background-color: $color-boton-editar-light;
+.btn-verde:hover,
+.btn-verde:focus,
+.btn-verde:active,
+.btn-verde:visited {
+  background-color: $color-verde-light;
 }
 
-/* -------------- BUTTON ICON ELIMINAR----------------*/
-.btn-spt-eliminar{
-  background-color: $color-boton-eliminar;
+
+/* -------------- BUTTON ICON EDITAR----------------*/
+.btn-azul{
+  background-color: $color-azul;
 }
-.btn-spt-eliminar:hover,
-.btn-spt-eliminar:focus,
-.btn-spt-eliminar:active,
-.btn-spt-eliminar:visited {
-  background-color: $color-boton-eliminar-light;
+.btn-azul:hover,
+.btn-azul:focus,
+.btn-azul:active,
+.btn-azul:visited {
+  background-color: $color-azul-light;
+}
+
+
+/* -------------- BUTTON ICON ELIMINAR----------------*/
+.btn-naranja{
+  background-color: $color-naranja;
+}
+.btn-naranja:hover,
+.btn-naranja:focus,
+.btn-naranja:active,
+.btn-naranja:visited {
+  background-color: $color-naranja-light;
 }
 
 /* -------------- BUTTON ICON VER----------------*/
-.btn-spt-ver{
-  background-color: $color-boton-ver;
+.btn-lila{
+  background-color: $color-lila;
 }
-.btn-spt-ver:hover,
-.btn-spt-ver:focus,
-.btn-spt-ver:active,
-.btn-spt-ver:visited {
-  background-color: $color-boton-ver-light;
+.btn-lila:hover,
+.btn-lila:focus,
+.btn-lila:active,
+.btn-lila:visited {
+  background-color: $color-lila-light;
 }
+
 
 
 /* -------------- BUTTON WITH RESIZING----------------*/
@@ -183,14 +261,14 @@ $color-boton-cambiarestado-light: #ffb24d;
 $color-estado-activo: #49DB81;
 $color-estado-inactivo:#FC4E6C;
 
-.tag-spt-activo {
+.tag-activo {
   background-color: $color-estado-activo;
   color: white;
   border-radius: 5px;
   padding: 3px 13px;
 }
 
-.tag-spt-inactivo {
+.tag-inactivo {
   background-color: $color-estado-inactivo;
   color: white;
   border-radius: 5px;
@@ -211,43 +289,22 @@ $color-estado-inactivo:#FC4E6C;
 }
 // ============================================== PAGINACIÓN ==============================================
 .ngx-pagination{
+  padding-left: 0px;
 }
+
+
 .ngx-pagination .current{
-  background-color: $color-secundario !important;
+  background-color: $color-secundario-dark !important;
   border-radius: 5px;
   padding: 4px 10px !important;
 }
 
-/* -------------- Anterior ----------------*/
-.ngx-pagination .pagination-previous span{
-  display: none;
-}
-.ngx-pagination .pagination-previous a {
-  visibility: hidden;
-}
-.ngx-pagination .pagination-previous a:after{
-  visibility: visible;
-  font-family: FontAwesome, Exo;
-  content: '\f100 Anterior';
-}
 .ngx-pagination .pagination-previous a:hover{
-  color: $color-secundario;
+  color: $color-secundario-dark;
 }
 
-/* -------------- Siguiente ----------------*/
-.ngx-pagination .pagination-next span{
-  display: none;
-}
-.ngx-pagination .pagination-next a{
-  visibility: hidden;
-}
-.ngx-pagination .pagination-next a:before{
-  visibility: visible;
-  font-family: FontAwesome, Exo;
-  content: 'Siguiente \f101';
-}
 .ngx-pagination .pagination-next a:hover{
-  color: $color-secundario;
+  color: $color-secundario-dark;
 }
 
 // ============================================== FORMS ==============================================
@@ -301,21 +358,19 @@ $color-estado-inactivo:#FC4E6C;
   padding: 5px;
 }
 /* ------------- Boton Eliminar -------------------*/
-
-
 .eliminar-body{
   text-align: center;
 
   .eliminar-icon{
     font-size: 100px !important;
-    color: $color-boton-eliminar;
+    color: $color-naranja;
   }
 }
 .eliminar-footer{
   padding: 20px;
   text-align: center !important;
 
-  .btn-eliminar{
+  .btn-naranja{
     margin: 5px;
     padding: 5px;
     font-size: 15px;
@@ -333,35 +388,9 @@ $color-estado-inactivo:#FC4E6C;
 }
 
 
-
-.btn-confirm-swal{
-  color: #fff;
-  background-color: $color-secundario-dark;
-  box-shadow: 0 .25rem .5rem #b6b6b6;
-  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
-  margin-left: 10px;margin-top: 0px;margin-bottom: 0px;margin-right: 10px;
-}
-.btn-spt-general:hover,
-.btn-spt-general:focus,
-.btn-spt-general:active,
-.btn-spt-general:visited {
-  background-color: $color-secundario-light;
-  //color:$btn-text-color;
+/*===================================== MENSAJES ==========================================*/
+.titulo-naranja {
+  color: $color-naranja;
+  font-size:20px;
 }
 
-
-
-.btn-cancel-swal{
-  color: #fff;
-  background-color: $color-cancel-dark;
-  box-shadow: 0 .25rem .5rem #b6b6b6;
-  -webkit-box-shadow: 0 .25rem .5rem #b6b6b6;
-  margin-left: 10px;margin-top: 0px;margin-bottom: 0px;margin-right: 10px;
-}
-.btn-spt-general:hover,
-.btn-spt-general:focus,
-.btn-spt-general:active,
-.btn-spt-general:visited {
-  background-color: $color-cancel-light;
-  //color:$btn-text-color;
-}

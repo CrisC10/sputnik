@@ -4,6 +4,7 @@ import {NotificacionesComponent} from './notificaciones.component';
 import {BlockUI, NgBlockUI} from 'ng-block-ui';
 import {NavigationEnd, Router} from '@angular/router';
 import {Constants} from '../../assets/constants';
+import {LoginService} from '../services/login/login.service';
 
 @Injectable()
 export class TiempoSesionComponent {
@@ -11,7 +12,8 @@ export class TiempoSesionComponent {
 
   constructor(private idle: Idle,
               private notificacion: NotificacionesComponent,
-              public router: Router) { }
+              public router: Router,
+              private loginService: LoginService) { }
 
   tiempoSession() {
     console.log('Iniciando tiempo sesion');
@@ -36,10 +38,12 @@ export class TiempoSesionComponent {
     });
 
     this.idle.onTimeout.subscribe(() => {
-      localStorage.clear();
-      // this.blockUI.start();
-      this.router.navigate(['/']);
-      console.log('Sesion expirada');
+      this.cerrarSessionExpirada();
+      /*localStorage.clear();
+      this.blockUI.start();
+      this.notificacion.warning('Su sessión a expirado');
+      this.router.navigate(['/login']);*/
+
     });
 
     this.idle.watch();
@@ -47,10 +51,53 @@ export class TiempoSesionComponent {
 
   cerrarTiempoSession() {
     this.blockUI.start();
-    this.idle.stop();
-    this.idle.ngOnDestroy();
-    localStorage.clear();
-    this.notificacion.success('Sesión cerrada correctamente');
-    this.router.navigate(['/login']);
+
+    this.loginService.logout().subscribe(
+      respuestaServidor => {
+        this.blockUI.stop();
+
+        this.idle.stop();
+        this.idle.ngOnDestroy();
+        localStorage.clear();
+        this.notificacion.success('Sesión cerrada correctamente');
+        this.router.navigate(['/login']);
+
+      },
+      errorServidor => {
+        this.blockUI.stop();
+
+        this.idle.stop();
+        this.idle.ngOnDestroy();
+        localStorage.clear();
+        this.notificacion.success('Sesión cerrada correctamente');
+        this.router.navigate(['/login']);
+      }
+    );
+  }
+
+  cerrarSessionExpirada() {
+    this.blockUI.start();
+
+    this.loginService.logout().subscribe(
+      respuestaServidor => {
+        this.blockUI.stop();
+
+        this.idle.stop();
+        this.idle.ngOnDestroy();
+        localStorage.clear();
+        this.notificacion.success('Su sessión a expirado');
+        this.router.navigate(['/login']);
+
+      },
+      errorServidor => {
+        this.blockUI.stop();
+
+        this.idle.stop();
+        this.idle.ngOnDestroy();
+        localStorage.clear();
+        this.notificacion.success('Su sessión a expirado');
+        this.router.navigate(['/login']);
+      }
+    );
   }
 }

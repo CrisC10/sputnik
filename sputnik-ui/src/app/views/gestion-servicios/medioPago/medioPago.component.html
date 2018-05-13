@@ -1,0 +1,96 @@
+<h2>Medios de Pago</h2>
+<hr class="primary" style="height: 0.4rem; background-image: -webkit-linear-gradient(left, #2471a3, #1f618d, #1a5276);" />
+
+<div class="card">
+  <div class="card-header">
+    <form class="form-inline">
+      <!--<button type="button"
+              class="btn btn-general"
+              (click)="llamarServicios()"
+              [disabled]="">
+        <i class="fas fa-arrow-alt-circle-down"></i>&nbsp;Cargar Datos
+      </button>-->
+      <div class="input-group col-4" style="padding-left: 0px;">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="icon ion-search"></i></div>
+        </div>
+        <input id="data"
+               name="data"
+               type="text"
+               class="form-control"
+               placeholder="Buscar Medio de Pago"
+               maxlength="50"
+               [(ngModel)]="filtroDeBusqueda"
+               validarLetrasDirective="true" SoloLetras="no" Especiales="/_,.">
+      </div>
+    </form>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="tabla-cabecera">
+        <tr>
+          <th style="text-align:center; width: 150px;">Acciones</th>
+          <th>ID </th>
+          <th>Descripción </th>
+          <th>Cuenta SAP</th>
+          <th>Tipo Medio SAP</th>
+          <th>Usuario Servicio</th>
+          <th>Canales </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of listaMedioPago | filtro: filtroDeBusqueda | paginate: { id: 'first', itemsPerPage: maxPage, currentPage: pagina, totalItems: listaMedioPago.length} ; index as i">
+          <td align="center" style="vertical-align: middle">
+            <button title="Asignar - Desasignar Canal"
+                    class="btn btn-icon btn-azul"
+                    (click)="asignarCanal(data)"><i class="fas fa-credit-card"></i></button>
+
+            <button title="Actualizar Credenciales"
+                    class="btn btn-icon btn-lila"
+                    (click)="editarCredenciales(data)"><i class="fas fa-key"></i></button>
+          </td>
+          <td>{{data.id}}</td>
+          <td>{{data.descripcion}}</td>
+          <td>{{data.cuentaSap}}</td>
+          <td>{{data.tipoMedioSap}}</td>
+          <td>
+            <div *ngIf="data.usernameService === '' || data.usernameService === null">Sin Asignar</div>
+            <div *ngIf="data.usernameService !== '' && data.usernameService !== null">{{data.usernameService}}</div>
+          </td>
+          <td><span *ngFor="let canal of data.canales; index as j">{{canal.codigo}}<span *ngIf="j < (data.canales.length - 1)"> | </span> </span> </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row" *ngIf="cantFilas > 0">
+      <div class="col-sm-5 col-md-9" style="padding-left: 0px;">
+        <pagination-controls
+          id='first'
+          (pageChange)="pagina = $event"
+          previousLabel="Anterior"
+          nextLabel="Siguiente"></pagination-controls>
+      </div>
+      <div class="col-sm-5 offset-sm-2 col-md-3 offset-md-0" style="padding-right: 0px;">
+        <form>
+          <div class="form-group row" >
+            <label for="maxPage" class="col-6 col-form-label text-right">Mostrar:</label>
+
+            <div class="col-6" style="padding-right: 0px;">
+              <select class="form-control custom-select"
+                      id="maxPage"
+                      name="maxPage"
+                      [(ngModel)]="maxPage">
+                <option [ngValue]=10>10</option>
+                <option [ngValue]=20>20</option>
+                <option [ngValue]=30>30</option>
+                <option [ngValue]=40>40</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

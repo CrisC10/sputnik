@@ -16,8 +16,7 @@ export class HeaderComponent implements OnInit{
 
   tituloProyecto = Constants.TITULO_PROYECTO;
   tituloModuloProyecto = Constants.TITULO_MODULO_PROYECTO;
-  // usuarioNombre = localStorage.getItem('usuario');
-  usuarioNombre = Constants.USUARIO;
+  usuarioNombre = localStorage.getItem('userName');
   estadoMenu = true;
   pushRightClass = 'push-right';
 
@@ -44,13 +43,13 @@ export class HeaderComponent implements OnInit{
     const dom: any = document.querySelector('body');
     dom.classList.toggle(this.pushRightClass);
   }
-  cerrarSesion() {
-    this.tiempoSesion.cerrarTiempoSession();
-  }
 
   comprimirVentana() {
     this.toggleSidebar();
     this.estadoMenu = !this.estadoMenu;
     this.comprimirMenu.emit(this.estadoMenu);
+  }
+  cerrarSesion() {
+    this.tiempoSesion.cerrarTiempoSession();
   }
 }

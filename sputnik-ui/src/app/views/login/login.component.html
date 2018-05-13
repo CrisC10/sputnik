@@ -3,10 +3,10 @@
   <div class="card-body">
 
 
-    <div class="row" style="margin-top: 125px;">
+    <div class="row" style="margin-top: 50px;">
       <div class="col-sm-12 col-md-12 offset-md-12 col-lg-12 offset-lg-0" >
         <div class="login-image">
-          <img src="assets/images/logoTropicalTours.png" />
+          <img style="height:250px;" src="assets/images/mascotaMundial.png" />
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
                    id="usuario"
                    name="usuario"
                    #vUsuario = "ngModel"
-                   [(ngModel)]="vObjLogin.usuario"
+                   [(ngModel)]="vObjLogin.username"
                    validarLetrasDirective="true" SoloLetras="no" Especiales="/-_\"
                    required
                    placeholder="Usuario"
@@ -77,6 +77,6 @@
     </div>
   </div>
   <div class="card-footer text-muted">
-    Desarrollado por&nbsp;&nbsp;<i class="far fa-copyright"></i>&nbsp;&nbsp;MC4 S.R.L. - 2018
+    Desarrollado por MC4 S.R.L. - 2018
   </div>
 </div>

@@ -57,26 +57,26 @@ export class ValidarLetrasDirective implements OnInit{
       if (this.elemRef.value !== '') {
         const arrayLetras = this.elemRef.value.split(' ');
 
-        // console.log('arrayLetras', arrayLetras);
+        console.log('arrayLetras', arrayLetras);
         if (arrayLetras[arrayLetras.length - 1] === '' && e.key === ' ') {
           e.preventDefault();
-          console.log(111);
+          // console.log(111);
         } else {
           if (arrayLetras[0] === '' && e.key === ' ') {
             this.elemRef.value = this.elemRef.value.trim();
             // e.preventDefault();
-            console.log(222);
-          } /*else {
+            // console.log(222);
+          } else {
             if (arrayLetras[0] === '') {
-              console.log(1111);
-              this.elemRef.value = this.elemRef.value.trim();
+              console.log(333);
+              // this.elemRef.value = this.elemRef.value.trim();
             }
-          }*/
+          }
         }
       } else {
         if (e.key === ' ') {
           e.preventDefault();
-          console.log(333);
+          console.log(4444);
         }
       }
     } else {

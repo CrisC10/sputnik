@@ -1,8 +1,14 @@
+$color-primario-dark: #7b241c ;
 $color-primario: #922b21;
-$color-primario-dark: #a93226 ;
-$color-primario-light: #c0392b;
-$topnav-color-text-hover: #aeb6bf;
-$topnav-color-text: #fff;
+$color-primario-light: #a93226;
+
+$color-secundario-dark: #1a5276;
+$color-secundario: #1f618d;
+$color-secundario-light: #2471a3;
+
+$color-gris-dark: #aeb6bf;
+$color-gris: #f2f3f4;
+$color-gris-light: #f8f9f9;
 
 /*-----------------ACCOUNT ICON--------------------*/
 .fa {
@@ -17,7 +23,7 @@ $topnav-color-text: #fff;
   background-color: $color-primario;
 }
 .fa-menu-action{
-  color: $topnav-color-text;
+  color: $color-gris;
   border-width: 0px !important;
   font-size: 30px;
 }
@@ -44,16 +50,16 @@ $topnav-color-text: #fff;
       font-size: 25px;
       margin-left: 10px;
       margin-top: 2px;
-      color: $topnav-color-text;
+      color: $color-gris;
     }
     .navbar-subname {
       font-size: 20px;
-      color: $topnav-color-text;
+      color: $color-gris;
     }
     .nav-item > a {
-      color: $topnav-color-text;
+      color: $color-gris;
       &:hover {
-        color: $topnav-color-text-hover;
+        color: $color-gris-dark;
       }
     }
   }
@@ -83,7 +89,7 @@ $topnav-color-text: #fff;
 
 
 
-@media screen and (max-width: 992px) {
+  @media screen and (max-width: 992px) {
     .navbar {
       .navbar-brand {
         margin-top: 10px;

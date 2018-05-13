@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   selector: 'subheader',
   styleUrls: ['subheader.component.scss'],
   template: `
-    <div class="sub-container" style="margin-top: -15px;">
+    <div class="sub-container">
       <i class="icon ion-android-laptop"></i> <span class="sub-text">MENÚ</span>
     </div>
   `

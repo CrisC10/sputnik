@@ -2,15 +2,13 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ServiciosComponent} from './servicios.component';
 
-import {AgrupadoresComponent} from './agrupadores/agrupadores.component';
-import {ClientesComponent} from './clientes/clientes.component';
+import {MedioPagoComponent} from './medioPago/medioPago.component';
 import {ConciliacionesComponent} from './conciliaciones/conciliaciones.component';
 
 
 const routes: Routes = [
   { path: '', component: ServiciosComponent },
-  { path: 'agrupador', component: AgrupadoresComponent },
-  { path: 'cliente', component: ClientesComponent },
+  { path: 'medioPago', component: MedioPagoComponent },
   { path: 'conciliacion', component: ConciliacionesComponent }
 ];
 

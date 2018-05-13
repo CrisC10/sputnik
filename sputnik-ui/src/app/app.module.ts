@@ -15,7 +15,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BlockUIModule} from 'ng-block-ui';
 import {NgIdleKeepaliveModule} from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
 import {MomentModule} from 'angular2-moment'; // optional, provides moment-style pipes for date formatting
-
+import {LoginService} from './services/login/login.service';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -51,7 +51,13 @@ export function getToken() {
   declarations: [
     AppComponent
   ],
-  providers: [AuthGuard, AuthChildGuard, AuthService, JwtHelperService],
+  providers: [
+    AuthGuard,
+    AuthChildGuard,
+    AuthService,
+    JwtHelperService,
+    LoginService
+  ],
   bootstrap: [AppComponent],
   exports: [],
 })
