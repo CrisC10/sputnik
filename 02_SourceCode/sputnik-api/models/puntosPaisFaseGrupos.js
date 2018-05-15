@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PuntosPaisFaceGruposSchema = Schema({
+const PuntosPaisFaseGruposSchema = Schema({
     id_puntos_pais_fase_grupos: Number,
     id_fase: Number,
     id_pais: Number,
@@ -11,4 +11,4 @@ const PuntosPaisFaceGruposSchema = Schema({
     gol_diferencia: Number
 });
 
-module.exports = mongoose.model('PuntosPaisFaceGrupos', PuntosPaisFaceGruposSchema);
+module.exports = mongoose.model('PuntosPaisFaseGrupos', PuntosPaisFaseGruposSchema);

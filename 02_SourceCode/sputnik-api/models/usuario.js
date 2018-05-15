@@ -8,6 +8,7 @@ const crypto = require('crypto');
 const UsuarioSchema = new Schema({
     id_usuario: Number,
     username: String,
+    nombre_completo: String,
     password: {type: String, select: false},
     partidas: [
         {
@@ -20,7 +21,7 @@ const UsuarioSchema = new Schema({
         }
     ],
     email: {type: String, unique: true, lowercase: true},
-    avatar: String,
+    // avatar: String,
     signupDate: {type: Date, default: Date.now()},
     lastLogin: Date
 });

@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const FacePartidoSchema = Schema({
+const FasePartidoSchema = Schema({
     id_fase: Number,
     codigo: String,
     descripcion: String,
@@ -29,4 +29,4 @@ const FacePartidoSchema = Schema({
     ]
 });
 
-module.exports = mongoose.model('FacePartido', FacePartidoSchema);
+module.exports = mongoose.model('FasePartido', FasePartidoSchema);
