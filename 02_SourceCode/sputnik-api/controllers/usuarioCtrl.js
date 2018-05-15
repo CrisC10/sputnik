@@ -17,8 +17,8 @@ function signUp(req, res) {
     })
 }
 
-function signIn(req, res) {
-    Usuario.find({email: req.body.email}, (err, usuario) => {
+function login(req, res) {
+    Usuario.find({username: req.body.username}, (err, usuario) => {
         if (err) return res.status(500).send({mensaje: `${err}`});
         if (!usuario) return res.status(404).send({mensaje: `No existe el usuario`});
 
@@ -32,5 +32,5 @@ function signIn(req, res) {
 
 module.exports = {
     signUp,
-    signIn
+    login
 };
