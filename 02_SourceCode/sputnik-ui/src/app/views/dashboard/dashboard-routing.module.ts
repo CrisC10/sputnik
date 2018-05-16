@@ -3,13 +3,14 @@ import {Routes, RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard.component';
 import {BienvenidaComponent} from './bienvenida/bienvenida.component';
 
+
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     children: [
       { path: '', component: BienvenidaComponent},
-      { path: 'servicios', loadChildren: '../gestion-servicios/servicios.module#ServiciosModule' }
+      { path: 'administracion', loadChildren: '../administracion/administracion.module#AdministracionModule' }
     ]
   }
 ];

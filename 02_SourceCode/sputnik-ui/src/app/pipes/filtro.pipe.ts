@@ -7,7 +7,7 @@ import * as moment from 'moment';
 })
 export class FiltroPipe implements PipeTransform {
   transform(listaDeObjeto: any[], parametro: any): any {
-    if (parametro === undefined) {
+    if (parametro === '' || parametro === null || parametro === undefined ) {
       return listaDeObjeto;
     }
 
@@ -44,8 +44,12 @@ export class FiltroPipe implements PipeTransform {
 
   cumpleFiltro(objeto: any, parametro: any): boolean {
     for (const atributo in objeto) {
-      if (atributo !== undefined) {
 
+      if (objeto[atributo] === null || objeto[atributo] === undefined) {
+        objeto[atributo] = '';
+      }
+
+      if (atributo !== undefined) {
         // Filtramos Fechas
         if (objeto[atributo].toString().length > 10 && moment(objeto[atributo]).isValid()) {
           const nuevaFecha = moment(objeto[atributo]).format('DD/MM/YYYY HH:mm:ss') + '';

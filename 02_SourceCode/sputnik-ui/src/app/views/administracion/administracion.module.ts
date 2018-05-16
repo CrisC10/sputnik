@@ -11,26 +11,12 @@ import {NotificacionesComponent} from '../../directives/notificaciones.component
 import {SweetAlertService} from '../../../assets/libreries/ngx-sweetalert2/src';
 import {FiltroPipe} from '../../pipes/filtro.pipe';
 import {FormatoFechaPipe} from '../../pipes/formatoFecha.pipe';
+import {FormatoNumeroPipe} from '../../pipes/formatoNumero.pipe';
 import {ComponentesModule} from '../../directives/componentes.module';
 import {ImpresionDocumentosModule} from '../../directives/impresionDocumentos.module';
 
-import {ServiciosComponent} from './servicios.component';
-import {ServiciosRoutingModule} from './servicios-routing.module';
-
-import {CanalService} from '../../services/gestion-servicios/canal.service';
-
-import {MedioPagoComponent} from './medioPago/medioPago.component';
-import {MedioPagoService} from '../../services/gestion-servicios/medioPago.service';
-import {AsignarCanalModal} from './medioPago/asignarCanal.modal';
-import {CredencialesMedioPagoModal} from './medioPago/credencialesMedioPago.modal';
-
-import {ConciliacionesComponent} from './conciliaciones/conciliaciones.component';
-import {ConciliacionesService} from '../../services/gestion-servicios/conciliaciones.service';
-
-import {TabsModule} from 'ngx-bootstrap';
-import {PaginationModule} from 'ngx-bootstrap';
-import {Ng2TableModule} from 'ng2-table/ng2-table';
-// import {NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective} from 'ng2-table/ng2-table';
+import {AdministracionComponent} from './administracion.component';
+import {AdministracionRoutingModule} from './administracion-routing.module';
 
 
 @NgModule({
@@ -44,29 +30,16 @@ import {Ng2TableModule} from 'ng2-table/ng2-table';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
-    TabsModule.forRoot(),
-    PaginationModule.forRoot(),
-    Ng2TableModule,
-    // NgTableComponent,
-    // NgTableFilteringDirective,
-    // NgTablePagingDirective,
-    // NgTableSortingDirective,
-    ServiciosRoutingModule,
+    AdministracionRoutingModule,
     ComponentesModule
   ],
   declarations: [
     FiltroPipe,
     FormatoFechaPipe,
-    ServiciosComponent,
-    MedioPagoComponent,
-    AsignarCanalModal,
-    CredencialesMedioPagoModal,
-    ConciliacionesComponent
+    FormatoNumeroPipe,
+    AdministracionComponent
   ],
   providers: [
-    CanalService,
-    MedioPagoService,
-    ConciliacionesService,
     {
       provide : HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
@@ -77,18 +50,14 @@ import {Ng2TableModule} from 'ng2-table/ng2-table';
     ImpresionDocumentosModule
   ],
   bootstrap: [
-    ServiciosComponent,
-    MedioPagoComponent,
-    ConciliacionesComponent
+    AdministracionComponent
   ],
   exports: [
     FiltroPipe,
     FormatoFechaPipe
   ],
   entryComponents: [
-    AsignarCanalModal,
-    CredencialesMedioPagoModal
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class ServiciosModule { }
+export class AdministracionModule { }
